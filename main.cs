@@ -4,12 +4,12 @@ using System.Collections.Generic;
 class MainClass {
   public static void Main () { 
     List <ideia>   Lista_ideia    = new List<ideia>();
-
-       
-    votacao vt = new votacao (0, "nenhum");
+    
+    List <votacao> Lista_votacaos = new List<votacao>(); 
+    
     string cadastrar = "S";
     while (cadastrar == "S"){
-      
+      votacao vt = new votacao (0);
       usuario anonimo = new usuario("anonimo", 0,"Confirma e-mail", 0);
       ideia   id      = new ideia  ("ideia", 0,"não especificada",  0);
       // // // descricao, votostotais, area, ranking
@@ -46,12 +46,23 @@ class MainClass {
         
         
       }
-
+      Lista_ideia.Add(0);
+       vt.like = 0;
+       vt.votostotais = 0;
+       Lista_votacaos.Add(vt);
     } 
 
-    List <votacao> Lista_votacaos = new List<votacao>();
     for(int i = 0; i<Lista_ideia.Count; i++){
-      Console.WriteLine( Lista_ideia[i].Getdescricao() );
+      Console.WriteLine("INDICE -- IDEIA -- ÁREA");
+
+      for(int j = 0; j<Lista_ideia.Count; j++){
+       Console.WriteLine( $"{j} {Lista_ideia[j].Getdescricao()} -- {Lista_ideia[j].Getarea()}" );
+        
+      }
+      Console.WriteLine("Indice que você vai votar>>");
+      
+      int indiceVotar = int.Parse(Console.ReadLine());
+      Lista_votacaos[indiceVotar] += 1;
 
 
     }

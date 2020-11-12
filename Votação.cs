@@ -1,12 +1,20 @@
 class votacao{
   public int like;
-  public string comentario;
+  public int votostotais;
+  
   
 
-  public votacao(int l, string c){
+  public votacao(int l,int v){
    like = l;
-   comentario = c;
-   
+   votostotais = v;
    
   }
+  
+ public int Getvotostotais() {
+    return votostotais;
+  }
+
+public int Getlike(){
+    return like;
 }
+
