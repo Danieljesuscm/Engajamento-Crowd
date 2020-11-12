@@ -21,7 +21,7 @@ class MainClass {
       
       
       if (cadastrar == "S"){
-
+       
         Console.WriteLine("diga o nome>>");
         string nome = Console.ReadLine();
         
@@ -39,11 +39,11 @@ class MainClass {
         Console.WriteLine ("diga sua ideia");
          string descricao= Console.ReadLine();
          id.Setdescricao(descricao);
-
+        
         Console.WriteLine("qual a aréa da sua ideia?");
         string area = Console.ReadLine();
         id.Setarea(area);
-
+        
         Lista_ideia.Add(id);
         vt.like = 0;       
         Lista_votacaos.Add(vt);
@@ -64,10 +64,11 @@ class MainClass {
       
       int indiceVotar = int.Parse(Console.ReadLine());
       Lista_votacaos[indiceVotar].like += 1;
-      int indiceVencedor = votacao.vencedor(Lista_votacaos);
-      double SemCriatividadePraFazerNomeDeVariavelNessaDesgraca = votacao.calculaPrecoVencedor(quantidadeJogadores, indiceVencedor);
-      Console.WriteLine($"Vencedor foi {Lista_ideia[indiceVencedor].descricao} com mais votos, vá la pegar seus {SemCriatividadePraFazerNomeDeVariavelNessaDesgraca} reais vadia");
+    
 
     }
+      int indiceVencedor = votacao.vencedor(Lista_votacaos);
+      double SemCriatividadePraFazerNomeDeVariavelNessaDesgraca = votacao.calculaPrecoVencedor(quantidadeJogadores, indiceVencedor);
+      Console.WriteLine($"Vencedor foi {Lista_ideia[indiceVencedor].descricao} com mais votos, vá la pegar seus {SemCriatividadePraFazerNomeDeVariavelNessaDesgraca} reais vadia(NAÕ VOTA ZERO CARAI)");
   }
 }
