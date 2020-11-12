@@ -1,20 +1,29 @@
+using System.Collections.Generic;
 class votacao{
   public int like;
-  public int votostotais;
   
   
 
-  public votacao(int l,int v){
+  public votacao(int l){
    like = l;
-   votostotais = v;
-   
-  }
-  
- public int Getvotostotais() {
-    return votostotais;
   }
 
-public int Getlike(){
-    return like;
+  public static int vencedor(List<votacao> quantidadeVotos){
+    int maior = quantidadeVotos[0].like;
+    int vencedor = 0;
+    for (int i=0; i<quantidadeVotos.Count; i++) {
+      if(quantidadeVotos[i].like>maior){
+        maior = quantidadeVotos[i].like;
+        vencedor = i;
+      }
+    }
+    return vencedor;
+    
+  }
+
+  public static double calculaPrecoVencedor( int votosRecebicos, int Votostotal ) {
+    double ResultadoFinal = ((votosRecebicos/Votostotal)*(votosRecebicos/Votostotal))*30000;
+    return ResultadoFinal;
+  }
+
 }
-

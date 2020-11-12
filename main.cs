@@ -8,10 +8,12 @@ class MainClass {
     List <votacao> Lista_votacaos = new List<votacao>(); 
     
     string cadastrar = "S";
+    int quantidadeJogadores = 0;
     while (cadastrar == "S"){
+      quantidadeJogadores++;
       votacao vt = new votacao (0);
       usuario anonimo = new usuario("anonimo", 0,"Confirma e-mail", 0);
-      ideia   id      = new ideia  ("ideia", 0,"não especificada",  0);
+      ideia   id      = new ideia  ("ideia", "area",0);
       // // // descricao, votostotais, area, ranking
 
       Console.WriteLine("Deseja cadastrar um novo usuario ? S/N");
@@ -43,13 +45,12 @@ class MainClass {
         id.Setarea(area);
 
         Lista_ideia.Add(id);
+        vt.like = 0;       
+        Lista_votacaos.Add(vt);
         
         
       }
-      Lista_ideia.Add(0);
-       vt.like = 0;
-       vt.votostotais = 0;
-       Lista_votacaos.Add(vt);
+       
     } 
 
     for(int i = 0; i<Lista_ideia.Count; i++){
@@ -62,8 +63,10 @@ class MainClass {
       Console.WriteLine("Indice que você vai votar>>");
       
       int indiceVotar = int.Parse(Console.ReadLine());
-      Lista_votacaos[indiceVotar] += 1;
-
+      Lista_votacaos[indiceVotar].like += 1;
+      int indiceVencedor = votacao.vencedor(Lista_votacaos);
+      double SemCriatividadePraFazerNomeDeVariavelNessaDesgraca = votacao.calculaPrecoVencedor(quantidadeJogadores, indiceVencedor);
+      Console.WriteLine($"Vencedor foi {Lista_ideia[indiceVencedor].descricao} com mais votos, vá la pegar seus {SemCriatividadePraFazerNomeDeVariavelNessaDesgraca} reais vadia");
 
     }
   }

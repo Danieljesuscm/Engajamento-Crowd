@@ -30,8 +30,7 @@ class ideia{
   }
 
   public ideia(string d, string a, int rnk){
-   descricao = d;
-   
+   descricao = d;   
    area = a;
    ranking = rnk;
   }
